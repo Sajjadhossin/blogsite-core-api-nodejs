@@ -15,6 +15,11 @@ let blogSchema = new Schema ({
     image: {
         type: String,
     },
+    tags: [String],
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category"
+    },
     postedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

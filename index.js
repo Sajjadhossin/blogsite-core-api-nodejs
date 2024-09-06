@@ -37,12 +37,12 @@ const upload = multer({ storage: storage })
 
 app.post('/registration', secureApi, registrationController);
 app.post("/login", secureApi, loginController);
-app.post("/blogPost", secureApi, upload.single('avatar'), blogPostController);
+app.post("/blogPost", upload.single('avatar'), blogPostController);
 app.post("/createCategory", secureApi, categoryController);
 app.delete("/categorydelete/:id", secureApi, categoryDeleteController); //here is shown how to delete dynamic. here id will be shown in route
 app.post("/categoryedit", secureApi, categoryEditController);
 app.post("/alldelete", secureApi, allDeleteController);
-app.get("/blogPost", secureApi, getAllBlogController);
+app.get("/blogPost", getAllBlogController);
 app.post("/blogedit", upload.single('avatar'), blogEditController);
 app.post("/blogdelete", blogDeleteController); // here is shown how to delete from post use it for bank related application. id will be hidden in route
 app.get("/:email", emailVerificationController);
